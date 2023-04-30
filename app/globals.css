@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+[data-themes="dark"] {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -22,18 +22,18 @@ body {
 
 .bg__gradiant {
   background-image: linear-gradient(
-    to right bottom,
-    #d16ba5,
-    #c777b9,
-    #ba83ca,
-    #aa8fd8,
-    #9a9ae1,
-    #8aa7ec,
-    #79b3f4,
-    #69bff8,
-    #52cffe,
-    #41dfff,
-    #46eefa,
-    #5ffbf1
+    to right top,
+    #233329,
+    #2c4f38,
+    #356c47,
+    #408a55,
+    #4da962,
+    #3ba76c,
+    #25a475,
+    #00a17d,
+    #007974,
+    #00525c,
+    #0c2e39,
+    #070c10
   );
 }

@@ -1,8 +1,11 @@
+"use client"
+
 import Link from "next/link"
 import { AiFillHome, AiOutlineHome } from "react-icons/ai"
-import { BsHddStack, BsMoon } from "react-icons/bs"
+import { BsHddStack, BsSun } from "react-icons/bs"
 import { CiLogout, CiUser } from "react-icons/Ci"
 import { IoMoonOutline } from "react-icons/io5"
+import { useTheme } from "next-themes"
 
 type Props = {}
 
@@ -11,6 +14,10 @@ const style = {
 }
 
 const Sidebar = (props: Props) => {
+  const { theme, setTheme } = useTheme()
+
+  console.log(theme)
+
   return (
     <div className="w-full max-w-[200px] px-4 py-4 flex flex-col justify-between bg-secondary ">
       <Link href="/">
@@ -39,9 +46,15 @@ const Sidebar = (props: Props) => {
           <CiUser className="text-2xl" />
           <span>Profile</span>
         </li>
-        <li className={style.li}>
+        <li
+          onClick={() => {
+            console.log("Theme")
+            setTheme("light")
+          }}
+          className={style.li}
+        >
           <IoMoonOutline className="text-2xl" />
-          <span>Dark</span>
+          <span className="text-white">Dark</span>
         </li>
         <li className={style.li}>
           <CiLogout className="text-2xl" />

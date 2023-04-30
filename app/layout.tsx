@@ -1,5 +1,7 @@
 import "./globals.css"
 import { Poppins } from "next/font/google"
+import Provider from "./providers/Provider"
+import { ClientOnly } from "./components"
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -18,7 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className}`}>{children}</body>
+      <body className={`${poppins.className}`}>
+        <ClientOnly>
+          <Provider>
+            <></>
+          </Provider>
+        </ClientOnly>
+
+        <>{children}</>
+      </body>
     </html>
   )
 }

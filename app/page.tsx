@@ -1,9 +1,11 @@
-import Image from "next/image"
 import { Button, Quiz, QuizBanner, Sidebar } from "./components"
 import { BsSearch } from "react-icons/bs"
 import Link from "next/link"
+import { getCurrentUser } from "./utils/auth.utils"
 
-export default function Home() {
+export default async function Home() {
+  const session = await getCurrentUser()
+
   return (
     <main className="flex h-screen overflow-y-hidden bg-white dark:bg-darkBg">
       <Sidebar />
