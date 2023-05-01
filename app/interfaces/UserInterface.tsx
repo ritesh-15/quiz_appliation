@@ -6,7 +6,13 @@ export interface IUserInterface {
 export interface Data {
   email: string
   jwt: string
-  user: User
+  id: number
+  username: string
+  provider: string
+  confirmed: boolean
+  blocked: boolean
+  createdAt: string
+  updatedAt: string
 }
 
 export interface User {

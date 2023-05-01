@@ -3,16 +3,11 @@
 import { Toaster } from "react-hot-toast"
 import { ThemeProvider } from "next-themes"
 
-interface Props {
-  children: React.ReactNode
-}
-
-const Provider = ({ children }: Props) => {
+const Provider = () => {
   return (
     <>
       <Toaster />
-      <ThemeProvider attribute="class" />
-      {children}
+      <ThemeProvider defaultTheme="light" attribute="class" />
     </>
   )
 }

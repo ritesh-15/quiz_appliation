@@ -49,7 +49,7 @@ const Sidebar = (props: Props) => {
         <li
           onClick={() => {
             console.log("Theme")
-            setTheme("light")
+            setTheme("dark")
           }}
           className={style.li}
         >

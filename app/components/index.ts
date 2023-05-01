@@ -9,6 +9,7 @@ import QuestionOption from "./option/Option"
 import Question from "./question/Question"
 import Quiz from "./quiz/Quiz"
 import QuizBanner from "./quiz_banner/QuizBanner"
+import SelectBox from "./select_box/SelectBox"
 import Sidebar from "./sidebar/Sidebar"
 import Textarea from "./textarea/Textarea"
 
@@ -26,4 +27,5 @@ export {
   Question,
   ClientOnly,
   EmptyState,
+  SelectBox,
 }

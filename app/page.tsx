@@ -1,10 +1,31 @@
-import { Button, Quiz, QuizBanner, Sidebar } from "./components"
+import {
+  Button,
+  ClientOnly,
+  EmptyState,
+  Quiz,
+  QuizBanner,
+  Sidebar,
+} from "./components"
 import { BsSearch } from "react-icons/bs"
 import Link from "next/link"
 import { getCurrentUser } from "./utils/auth.utils"
+import CategoryService from "./services/categories.service"
 
 export default async function Home() {
   const session = await getCurrentUser()
+  const categories = await CategoryService.getAllCategories()
+
+  if (!session)
+    return (
+      <>
+        <EmptyState
+          title="You are not allowed here!"
+          description="Please login to continue"
+          actionText="Login to continue"
+          actionURL="/login"
+        />
+      </>
+    )
 
   return (
     <main className="flex h-screen overflow-y-hidden bg-white dark:bg-darkBg">
@@ -33,15 +54,14 @@ export default async function Home() {
             <div className="mt-12">
               <h1 className="text-xl font-semibold">Categories</h1>
               <div className="flex flex-wrap mt-4 gap-4">
-                <div className="bg-gray-200 dark:bg-secondary px-3 py-3 rounded-lg cursor-pointer">
-                  <span>Typescript</span>
-                </div>
-                <div className="bg-gray-200 dark:bg-secondary px-3 py-3 rounded-lg cursor-pointer">
-                  <span>React JS</span>
-                </div>
-                <div className="px-3 py-3 rounded-lg bg-primary text-white cursor-pointer">
-                  <span>Javascript</span>
-                </div>
+                {categories.map(({ id, name }) => (
+                  <div
+                    key={id}
+                    className="bg-gray-200 dark:bg-secondary px-3 py-3 rounded-lg cursor-pointer"
+                  >
+                    <span>{name}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
